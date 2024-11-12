@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        @media (max-width: 600px) {
+            form {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Biology General Questions</h1>
+<form id="biologyQuiz">
+    <div class="question">
+        <label for="q1">1. What is the basic unit of life?</label><br>
+        <input type="text" id="q1" name="q1" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q2">2. Which organelle is known as the powerhouse of the cell?</label><br>
+        <input type="text" id="q2" name="q2" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>3. What is the process by which plants make their food?</label><br>
+        <input type="radio" id="photosynthesis" name="q3" value="Photosynthesis" required>
+        <label for="photosynthesis">Photosynthesis</label><br>
+        <input type="radio" id="respiration" name="q3" value="Respiration">
+        <label for="respiration">Respiration</label>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q4">4. What is the chemical formula for water?</label><br>
+        <input type="text" id="q4" name="q4" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q5">5. Who proposed the theory of evolution by natural selection?</label><br>
+        <input type="text" id="q5" name="q5" required>
+        <span class="feedback"></span>
+    </div>
+    <!-- Add more questions as needed -->
+    <div class="question">
+        <label for="q100">100. What process do plants use to convert sunlight into energy?</label><br>
+        <input type="text" id="q100" name="q100" required>
+        <span class="feedback"></span>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    const correctAnswers = {
+        q1: "cell",
+        q2: "mitochondria",
+        q3: "Photosynthesis",
+        q4: "H2O",
+        q5: "Charles Darwin",
+        // Add correct answers for additional questions here
+        q100: "photosynthesis"
+    };
+
+    document.getElementById('biologyQuiz').onsubmit = function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Clear previous feedback
+        const feedbackElements = document.querySelectorAll('.feedback');
+        feedbackElements.forEach(el => el.textContent = '');
+
+        // Check answers
+        for (const [key, correctAnswer] of Object.entries(correctAnswers)) {
+            const userAnswer = document.querySelector(`#${key}`).value.trim();
+            const feedbackElement = document.querySelector(`#${key}`).nextElementSibling;
+
+            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                feedbackElement.textContent = "Correct!";
+                feedbackElement.className = "feedback correct";
+            } else {
+                feedbackElement.textContent = "Incorrect!";
+                feedbackElement.className = "feedback incorrect";
+            }
+        }
+    };
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+        @media (max-width: 600px) {
+            form {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Biology General Questions</h1>
+<form id="biologyQuiz">
+    <div class="question">
+        <label for="q1">1. What is the basic unit of life?</label><br>
+        <input type="text" id="q1" name="q1" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q2">2. Which organelle is known as the powerhouse of the cell?</label><br>
+        <input type="text" id="q2" name="q2" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>3. What is the process by which plants make their food?</label><br>
+        <input type="radio" id="photosynthesis" name="q3" value="Photosynthesis" required>
+        <label for="photosynthesis">Photosynthesis</label><br>
+        <input type="radio" id="respiration" name="q3" value="Respiration">
+        <label for="respiration">Respiration</label>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q4">4. What is the chemical formula for water?</label><br>
+        <input type="text" id="q4" name="q4" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q5">5. Who proposed the theory of evolution by natural selection?</label><br>
+        <input type="text" id="q5" name="q5" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q6">6. What is the largest organ in the human body?</label><br>
+        <input type="text" id="q6" name="q6" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q7">7. What is the role of ribosomes in a cell?</label><br>
+        <input type="text" id="q7" name="q7" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>8. Which of the following is a prokaryotic organism?</label><br>
+        <input type="radio" id="bacteria" name="q8" value="Bacteria" required>
+        <label for="bacteria">Bacteria</label><br>
+        <input type="radio" id="fungi" name="q8" value="Fungi">
+        <label for="fungi">Fungi</label><br>
+        <input type="radio" id="plant" name="q8" value="Plant">
+        <label for="plant">Plant</label>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q9">9. What is the function of the cell membrane?</label><br>
+        <input type="text" id="q9" name="q9" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q10">10. What type of bond holds the two strands of DNA together?</label><br>
+        <input type="text" id="q10" name="q10" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q11">11. What is the primary energy currency of the cell?</label><br>
+        <input type="text" id="q11" name="q11" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>12. Which vitamin is produced when the skin is exposed to sunlight?</label><br>
+        <input type="radio" id="vitaminA" name="q12" value="Vitamin A" required>
+        <label for="vitaminA">Vitamin A</label><br>
+        <input type="radio" id="vitaminD" name="q12" value="Vitamin D">
+        <label for="vitaminD">Vitamin D</label><br>
+        <input type="radio" id="vitaminC" name="q12" value="Vitamin C">
+        <label for="vitaminC">Vitamin C</label>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q13">13. What structure in plant cells is responsible for photosynthesis?</label><br>
+        <input type="text" id="q13" name="q13" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q14">14. What is the process of cell division called?</label><br>
+        <input type="text" id="q14" name="q14" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q15">15. What is the primary role of chlorophyll?</label><br>
+        <input type="text" id="q15" name="q15" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>16. Which type of RNA carries the genetic information from DNA to the ribosome?</label><br>
+        <input type="radio" id="mRNA" name="q16" value="mRNA" required>
+        <label for="mRNA">mRNA</label><br>
+        <input type="radio" id="tRNA" name="q16" value="tRNA">
+        <label for="tRNA">tRNA</label><br>
+        <input type="radio" id="rRNA" name="q16" value="rRNA">
+        <label for="rRNA">rRNA</label>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q17">17. What is the name of the process by which organisms maintain stable internal conditions?</label><br>
+        <input type="text" id="q17" name="q17" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q18">18. What is the main component of the cell wall in plants?</label><br>
+        <input type="text" id="q18" name="q18" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>19. Which part of the cell contains the genetic material?</label><br>
+        <input type="radio" id="nucleus" name="q19" value="Nucleus" required>
+        <label for="nucleus">Nucleus</label><br>
+        <input type="radio" id="cytoplasm" name="q19" value="Cytoplasm">
+        <label for="cytoplasm">Cytoplasm</label><br>
+        <input type="radio" id="ribosome" name="q19" value="Ribosome">
+        <label for="ribosome">Ribosome</label>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q20">20. What is the primary function of red blood cells?</label><br>
+        <input type="text" id="q20" name="q20" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q21">21. What is the term for a group of similar cells that perform a specific function?</label><br>
+        <input type="text" id="q21" name="q21" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q22">22. Which organ is responsible for filtering blood in the human body?</label><br>
+        <input type="text" id="q22" name="q22" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>23. What is the role of enzymes in biological reactions?</label><br>
+        <input type="text" id="q23" name="q23" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q24">24. What is the process by which cells break down glucose to produce energy?</label><br>
+        <input type="text" id="q24" name="q24" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>25. What type of macromolecule are enzymes?</label><br>
+        <input type="text" id="q25" name="q25" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q26">26. What is the primary function of the large intestine?</label><br>
+        <input type="text" id="q26" name="q26" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q27">27. What is the main function of the respiratory system?</label><br>
+        <input type="text" id="q27" name="q27" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q28">28. What type of cell division produces gametes?</label><br>
+        <input type="text" id="q28" name="q28" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>29. Which part of the brain regulates balance and coordination?</label><br>
+        <input type="text" id="q29" name="q29" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q30">30. What is the term for the genetic makeup of an organism?</label><br>
+        <input type="text" id="q30" name="q30" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q31">31. What is the role of the mitochondria?</label><br>
+        <input type="text" id="q31" name="q31" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q32">32. What is a mutation?</label><br>
+        <input type="text" id="q32" name="q32" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>33. What is the function of insulin?</label><br>
+        <input type="text" id="q33" name="q33" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q34">34. What is the primary purpose of the circulatory system?</label><br>
+        <input type="text" id="q34" name="q34" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q35">35. What do you call a symbiotic relationship where one organism benefits and the other is harmed?</label><br>
+        <input type="text" id="q35" name="q35" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>36. What is the main component of the cell membrane?</label><br>
+        <input type="text" id="q36" name="q36" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q37">37. What is the primary role of white blood cells?</label><br>
+        <input type="text" id="q37" name="q37" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>38. What is homeostasis?</label><br>
+        <input type="text" id="q38" name="q38" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q39">39. What organ is primarily responsible for detoxification in the body?</label><br>
+        <input type="text" id="q39" name="q39" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q40">40. What is the primary function of the kidneys?</label><br>
+        <input type="text" id="q40" name="q40" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q41">41. What is the basic building block of proteins?</label><br>
+        <input type="text" id="q41" name="q41" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>42. In which part of the cell does glycolysis occur?</label><br>
+        <input type="text" id="q42" name="q42" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q43">43. What is the name of the protective layer surrounding the cell?</label><br>
+        <input type="text" id="q43" name="q43" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q44">44. What are the two main stages of photosynthesis?</label><br>
+        <input type="text" id="q44" name="q44" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>45. What type of organism is a mushroom?</label><br>
+        <input type="text" id="q45" name="q45" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q46">46. What is the term for the study of heredity?</label><br>
+        <input type="text" id="q46" name="q46" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q47">47. What type of cell division results in two identical daughter cells?</label><br>
+        <input type="text" id="q47" name="q47" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>48. What is the role of the Golgi apparatus?</label><br>
+        <input type="text" id="q48" name="q48" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q49">49. What is the primary function of the spleen?</label><br>
+        <input type="text" id="q49" name="q49" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q50">50. What is the term for a genetic cross between two individuals?</label><br>
+        <input type="text" id="q50" name="q50" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q51">51. What is the primary function of the endocrine system?</label><br>
+        <input type="text" id="q51" name="q51" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>52. What is the role of the thyroid gland?</label><br>
+        <input type="text" id="q52" name="q52" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q53">53. What is the primary purpose of meiosis?</label><br>
+        <input type="text" id="q53" name="q53" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q54">54. What type of plant tissue is responsible for photosynthesis?</label><br>
+        <input type="text" id="q54" name="q54" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>55. What is the name of the
+    <div class="question">
+        <label for="q55">55. What is the name of the pigment found in chloroplasts?</label><br>
+        <input type="text" id="q55" name="q55" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q56">56. What organ is responsible for producing bile?</label><br>
+        <input type="text" id="q56" name="q56" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>57. What is the function of the small intestine?</label><br>
+        <input type="text" id="q57" name="q57" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q58">58. What is the main function of the skeletal system?</label><br>
+        <input type="text" id="q58" name="q58" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q59">59. What type of blood cells are responsible for clotting?</label><br>
+        <input type="text" id="q59" name="q59" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q60">60. What is the term for the process by which cells convert glucose into energy in the presence of oxygen?</label><br>
+        <input type="text" id="q60" name="q60" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>61. Which part of the plant is responsible for absorbing water and nutrients from the soil?</label><br>
+        <input type="text" id="q61" name="q61" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q62">62. What is the primary purpose of the immune system?</label><br>
+        <input type="text" id="q62" name="q62" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q63">63. What are the building blocks of nucleic acids?</label><br>
+        <input type="text" id="q63" name="q63" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>64. What is the role of the pancreas in digestion?</label><br>
+        <input type="text" id="q64" name="q64" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q65">65. Which organ is primarily responsible for gas exchange?</label><br>
+        <input type="text" id="q65" name="q65" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q66">66. What is the main function of the nervous system?</label><br>
+        <input type="text" id="q66" name="q66" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>67. What is a virus?</label><br>
+        <input type="text" id="q67" name="q67" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q68">68. What is the purpose of meiosis in sexual reproduction?</label><br>
+        <input type="text" id="q68" name="q68" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q69">69. What is the primary function of the lymphatic system?</label><br>
+        <input type="text" id="q69" name="q69" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>70. What is the role of antibodies?</label><br>
+        <input type="text" id="q70" name="q70" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q71">71. What type of organism is a frog?</label><br>
+        <input type="text" id="q71" name="q71" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q72">72. What is the term for a trait that is masked by another trait?</label><br>
+        <input type="text" id="q72" name="q72" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>73. What is the primary role of the cerebellum in the brain?</label><br>
+        <input type="text" id="q73" name="q73" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q74">74. What do we call the process of water moving through a semi-permeable membrane?</label><br>
+        <input type="text" id="q74" name="q74" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q75">75. What is the name of the structure that protects the brain?</label><br>
+        <input type="text" id="q75" name="q75" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>76. What is a keystone species?</label><br>
+        <input type="text" id="q76" name="q76" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q77">77. What is the primary role of the hypothalamus?</label><br>
+        <input type="text" id="q77" name="q77" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q78">78. What is the function of the myelin sheath?</label><br>
+        <input type="text" id="q78" name="q78" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>79. What is the term for an organism’s role in its environment?</label><br>
+        <input type="text" id="q79" name="q79" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q80">80. What is the primary function of the adrenal glands?</label><br>
+        <input type="text" id="q80" name="q80" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q81">81. What is the role of the pituitary gland?</label><br>
+        <input type="text" id="q81" name="q81" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q82">82. What is the process of converting ammonia to urea called?</label><br>
+        <input type="text" id="q82" name="q82" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>83. What is the primary function of the urinary system?</label><br>
+        <input type="text" id="q83" name="q83" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q84">84. What is the main function of the integumentary system?</label><br>
+        <input type="text" id="q84" name="q84" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q85">85. What is the term for the variety of life in a particular habitat?</label><br>
+        <input type="text" id="q85" name="q85" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>86. What is the main function of the thalamus?</label><br>
+        <input type="text" id="q86" name="q86" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q87">87. What is the purpose of the respiratory system?</label><br>
+        <input type="text" id="q87" name="q87" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q88">88. What is the primary function of the liver?</label><br>
+        <input type="text" id="q88" name="q88" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>89. What is the role of the skin in the body?</label><br>
+        <input type="text" id="q89" name="q89" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q90">90. What is the term for the study of ecosystems?</label><br>
+        <input type="text" id="q90" name="q90" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q91">91. What is the role of the cerebrum in the brain?</label><br>
+        <input type="text" id="q91" name="q91" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>92. What is the primary function of hormones?</label><br>
+        <input type="text" id="q92" name="q92" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q93">93. What is the process of natural selection?</label><br>
+        <input type="text" id="q93" name="q93" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q94">94. What is the role of the cilia in the respiratory system?</label><br>
+        <input type="text" id="q94" name="q94" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>95. What is the name of the cell that produces antibodies?</label><br>
+        <input type="text" id="q95" name="q95" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q96">96. What is the primary function of the gallbladder?</label><br>
+        <input type="text" id="q96" name="q96" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q97">97. What is the term for a change in a DNA sequence?</label><br>
+        <input type="text" id="q97" name="q97" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label>98. What is the main function of the lymphatic system?</label><br>
+        <input type="text" id="q98" name="q98" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q99">99. What is the function of the hypothalamus in homeostasis?</label><br>
+        <input type="text" id="q99" name="q99" required>
+        <span class="feedback"></span>
+    </div>
+    <div class="question">
+        <label for="q100">100. What process do plants use to convert sunlight into energy?</label><br>
+        <input type="text" id="q100" name="q100" required>
+        <span class="feedback"></span>
+    </div>
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+    const correctAnswers = {
+        q1: "cell",
+        q2: "mitochondria",
+        q3: "Photosynthesis",
+        q4: "H2O",
+        q5: "Charles Darwin",
+        q6: "skin",
+        q7: "protein synthesis",
+        q8: "Bacteria",
+        q9: "regulates what enters and exits the cell",
+        q10: "hydrogen and ionic bonds",
+        q11: "ATP",
+        q12: "Vitamin D",
+        q13: "chloroplast",
+        q14: "mitosis",
+        q15: "absorbs light energy",
+        q16: "mRNA",
+        q17: "homeostasis",
+        q18: "cellulose",
+        q19: "Nucleus",
+        q20: "transport oxygen",
+        q21: "tissue",
+        q22: "kidney",
+        q23: "catalyze reactions",
+        q24: "cellular respiration",
+        q25: "protein",
+        q26: "water reabsorption",
+        q27: "gas exchange",
+        q28: "meiosis",
+        q29: "cerebellum",
+        q30: "genotype",
+        q31: "produce ATP",
+        q32: "a change in DNA sequence",
+        q33: "regulates blood sugar levels",
+        q34: "transport nutrients",
+        q35: "parasitism",
+        q36: "phospholipid bilayer",
+        q37: "fight infection",
+        q38: "maintaining stable internal conditions",
+        q39: "liver",
+        q40: "filter blood",
+        q41: "amino acids",
+        q42: "cytoplasm",
+        q43: "cell membrane",
+        q44: "light-dependent and light-independent reactions",
+        q45: "fungus",
+        q46: "genetics",
+        q47: "mitosis",
+        q48: "modify and package proteins",
+        q49: "filter blood and produce lymph",
+        q50: "cross",
+        q51: "hormone regulation",
+        q52: "regulates metabolism",
+        q53: "produce gametes",
+        q54: "chlorenchyma",
+        q55: "chlorophyll",
+        q56: "liver",
+        q57: "digestion and absorption",
+        q58: "support and protection",
+        q59: "platelets",
+        q60: "aerobic respiration",
+        q61: "roots",
+        q62: "defend against pathogens",
+        q63: "nucleotides",
+        q64: "produce digestive enzymes",
+        q65: "lungs",
+        q66: "control body functions",
+        q67: "non-cellular infectious agent",
+        q68: "reduce chromosome number",
+        q69: "transport lymph",
+        q70: "bind to antigens",
+        q71: "amphibian",
+        q72: "recessive",
+        q73: "coordinate movement",
+        q74: "osmosis",
+        q75: "skull",
+        q76: "species that have a large impact on their ecosystem",
+        q77: "regulate body temperature and hormones",
+        q78: "insulate and protect nerve fibers",
+        q79: "niche",
+        q80: "produce stress hormones",
+        q81: "regulate other glands",
+        q82: "urea cycle",
+        q83: "remove waste products",
+        q84: "protect the body",
+        q85: "biodiversity",
+        q86: "relay sensory information",
+        q87: "exchange gases",
+        q88: "detoxification and metabolism",
+        q89: "protection and sensation",
+        q90: "ecology",
+        q91: "higher brain functions",
+        q92: "regulate physiological processes",
+        q93: "survival of the fittest",
+        q94: "trap debris and pathogens",
+        q95: "B cells",
+        q96: "store bile",
+        q97: "mutation",
+        q98: "defend against pathogens",
+        q99: "regulate body temperature and thirst",
+        q100: "photosynthesis"
+    };
+
+    document.getElementById('biologyQuiz').onsubmit = function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Clear previous feedback
+        const feedbackElements = document.querySelectorAll('.feedback');
+        feedbackElements.forEach(el => el.textContent = '');
+
+        // Check answers
+        for (const [key, correctAnswer] of Object.entries(correctAnswers)) {
+            const userAnswer = document.querySelector(`#${key}`).value.trim();
+            const feedbackElement = document.querySelector(`#${key}`).nextElementSibling;
+
+            if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+                feedbackElement.textContent = "Correct!";
+                feedbackElement.className = "feedback correct";
+            } else {
+                feedbackElement.textContent = "Incorrect!";
+                feedbackElement.className = "feedback incorrect";
+            }
+        }
+    };
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
